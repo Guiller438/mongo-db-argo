@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+  labels:
+    app: mongo
+spec:
+  selector:
+    app: mongo
+  ports:
+    - protocol: TCP
+      port: 27017         # Puerto expuesto dentro del clúster
+      targetPort: 27017   # Puerto dentro del contenedor (el que definiste antes)
+  type: ClusterIP         # Solo accesible dentro del clúster
